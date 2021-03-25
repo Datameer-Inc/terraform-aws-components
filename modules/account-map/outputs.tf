@@ -1,6 +1,6 @@
-output "root_account_aws_name" {
-  value = var.root_account_aws_name
-}
+# output "root_account_aws_name" {
+#   value = var.root_account_aws_name
+# }
 
 output "root_account_stage_name" {
   value = var.root_account_stage_name
@@ -18,9 +18,9 @@ output "audit_account_stage_name" {
   value = var.audit_account_stage_name
 }
 
-output "org" {
-  value = data.aws_organizations_organization.organization
-}
+# output "org" {
+#   value = data.aws_organizations_organization.organization
+# }
 
 output "full_account_map" {
   value = local.full_account_map

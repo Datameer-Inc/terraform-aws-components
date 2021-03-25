@@ -3,10 +3,10 @@ variable "region" {
   description = "AWS Region"
 }
 
-variable "root_account_aws_name" {
-  type        = string
-  description = "The name of the root account as reported by AWS"
-}
+# variable "root_account_aws_name" {
+#   type        = string
+#   description = "The name of the root account as reported by AWS"
+# }
 
 variable "root_account_stage_name" {
   type        = string
