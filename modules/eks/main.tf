@@ -24,6 +24,25 @@ locals {
   map_additional_iam_roles = concat(local.primary_iam_roles, local.delegated_iam_roles)
 }
 
+output "debug-var-delegated_iam_roles" {
+  value = var.delegated_iam_roles
+}
+output "debug-primary_role_map" {
+  value = local.delegated_role_map
+}
+output "debug-delegated_role_map" {
+  value = local.delegated_role_map
+}
+output "debug-delegated_role_map-outputs" {
+  value = data.terraform_remote_state.delegated_roles.outputs
+}
+output "debug-eks_outputs" {
+  value = local.eks_outputs
+}
+output "debug-vpc_outputs" {
+  value = local.vpc_outputs
+}
+
 module "eks_cluster" {
   source = "git::https://github.com/cloudposse/terraform-aws-eks-cluster.git?ref=tags/0.29.0"
 
@@ -96,6 +115,10 @@ locals {
   # node_group_arns is a list of all the node group ARNs in the cluster
   node_group_arns      = compact([for group in local.node_groups : group.eks_node_group_arn])
   node_group_role_arns = compact([for group in local.node_groups : group.eks_node_group_role_arn])
+}
+
+output "debug" {
+  value = module.region_node_group
 }
 
 module "region_node_group" {

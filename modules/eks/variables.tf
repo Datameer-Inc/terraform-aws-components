@@ -160,7 +160,7 @@ variable "node_groups" {
     tags             = map(string)
   }))
   description = "List of objects defining a node group for the cluster"
-  default     = null
+  default = null
 }
 
 variable "node_group_defaults" {

@@ -1,6 +1,7 @@
 data "terraform_remote_state" "primary_roles" {
   backend   = "s3"
-  workspace = format("%s-%s", var.iam_roles_environment_name, var.iam_primary_roles_stage_name)
+  # workspace = format("%s-%s", var.iam_roles_environment_name, var.iam_primary_roles_stage_name) # evaluates to gbl-root by default
+  workspace = "gbl-identity"
 
   config = {
     encrypt              = true
@@ -16,16 +17,21 @@ data "terraform_remote_state" "primary_roles" {
 
 data "terraform_remote_state" "delegated_roles" {
   backend   = "s3"
-  workspace = format("%s-%s", var.iam_roles_environment_name, module.this.stage)
+  # workspace = format("%s-%s", var.iam_roles_environment_name, module.this.stage) # evaluates to gbl-root by default
+  workspace = "ue2-staging"
 
   config = {
     encrypt              = true
-    bucket               = local.tfstate_bucket
+    # bucket               = local.tfstate_bucket
+    bucket               = "atmos-gbl-root-tfstate"
     workspace_key_prefix = "iam-delegated-roles"
     key                  = "terraform.tfstate"
-    dynamodb_table       = local.tfstate_dynamodb_table
-    region               = var.region
-    role_arn             = local.tfstate_access_role_arn
+    # dynamodb_table       = local.tfstate_dynamodb_table
+    dynamodb_table       = "atmos-gbl-root-tfstate-lock"
+    # region               = var.region
+    region               = "us-east-2"
+    # role_arn             = local.tfstate_access_role_arn
+    role_arn             = "arn:aws:iam::948006044704:role/nbo-master-admin"
     acl                  = "bucket-owner-full-control"
   }
 }

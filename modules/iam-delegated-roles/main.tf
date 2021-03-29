@@ -22,6 +22,13 @@ locals {
   }
 }
 
+# output "debug-local-roles_config" {
+#   value = local.roles_config
+# }
+# output "debug-aws_iam_role-default" {
+#   value = aws_iam_role.default
+# }
+
 module "label" {
   source = "git::https://github.com/cloudposse/terraform-null-label.git?ref=tags/0.21.0"
 
