@@ -157,7 +157,7 @@ variable "id_length_limit" {
   type        = number
   default     = null
   description = <<-EOT
-    Limit `id` to ss many characters.
+    Limit `id` to this many characters.
     Set to `0` for unlimited length.
     Set to `null` for default, which is `0`.
     Does not affect `id_full`.

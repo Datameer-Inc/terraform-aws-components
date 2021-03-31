@@ -1,3 +1,5 @@
+# Workaround: we don't realy on the output of the account module to set up a account matrix, instead we provide the matrix via input parameters
+
 # workaround: temporarily disable state export and provide input through variables
 # data "terraform_remote_state" "accounts" {
 #   backend   = "s3"

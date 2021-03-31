@@ -3,6 +3,7 @@ variable "region" {
   description = "AWS Region"
 }
 
+# It isn't used anywhere in the module
 # variable "root_account_aws_name" {
 #   type        = string
 #   description = "The name of the root account as reported by AWS"

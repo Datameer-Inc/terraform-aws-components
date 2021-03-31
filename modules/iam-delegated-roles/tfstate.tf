@@ -3,6 +3,7 @@ data "terraform_remote_state" "primary_roles" {
   # workspace = format("%s-%s", var.iam_roles_environment_name, var.iam_primary_roles_stage_name)
   workspace = "gbl-identity" # in different stack
 
+  # To demonstrate what it's like to troubleshoot a wrongly provided tfstate reference
   config = {
     encrypt              = true
     bucket               = local.tfstate_bucket

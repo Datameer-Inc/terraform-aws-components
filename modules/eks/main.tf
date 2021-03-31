@@ -24,6 +24,7 @@ locals {
   map_additional_iam_roles = concat(local.primary_iam_roles, local.delegated_iam_roles)
 }
 
+# For demonstrative purposes to show what it's like to debug the module given all the nesting levels
 output "debug-var-delegated_iam_roles" {
   value = var.delegated_iam_roles
 }
