@@ -22,13 +22,15 @@ locals {
   # Unfortunately, we cannot create a map piece by piece, so
   # every service account module has to register in this output_map
   output_map = {
-    alb-controller           = module.alb-controller.outputs
-    autoscaler               = module.autoscaler.outputs
-    cert-manager             = module.cert-manager.outputs
-    external-dns             = module.external-dns.outputs
-    github-action-runner     = module.github-action-runner.outputs
-    jenkins-master           = module.jenkins-master,
-    jenkins-worker           = module.jenkins-worker,
+    alb-controller              = module.alb-controller.outputs
+    autoscaler                  = module.autoscaler.outputs
+    cert-manager                = module.cert-manager.outputs
+    external-dns                = module.external-dns.outputs
+    github-action-runner        = module.github-action-runner.outputs
+    jenkins-master              = module.jenkins-master,
+    jenkins-worker              = module.jenkins-worker,
+    kubernetes-external-secrets = module.kubernetes-external-secrets
+
   }
 
   cluster_context = {
